@@ -6,14 +6,19 @@
 
 ## Goals of this test
 
-1. Respect the cookie law by:
+1. Respect the **cookie law** by:
    1. Don't put any cookie, that could be used for tracking, before the user makes a decision about cookies.
    2. If the user denies all cookies, the only cookie allowed is the local storage object `cookieSettings` with info about the user's choice.
    3. If the user has taken a decision about cookies before the implementation of Mixpanel, respect that decision.
    4. Respect the 2 relevant categories: "analytics" for anonymous tracking and with "segmentation" we can relate with PII.
-2. Mixpanel should collect information with Brave's browser and it's default settings. The user cookie decisions for this website have to override Brave's.
+2. Set up the **identity** properly to use with:
+   1. Anonymous users that have rejected cookies on events in the same page (page view and others)
+   2. Anonymous users that have accepted cookies. The idenity will have to be consistent between pages and between sessions.
+   3. Users identified by email (forms) should merge their new non-anonymous identity with previous ones. Only if the user has accepted the `segmentation` category.
+   4. Add a new email to an idenity that already has an email address.
+3. Mixpanel should collect information with **Brave's browser** and it's default settings. The user's cookie decisions for this website have to override Brave's settings.
 
-<small>Note: Above, when say "coookie", it includes any tech that can store information in the user's browser.</small> 
+<sup><sub>Note: Above, when say "coookie", it includes any tech that can store information in the user's browser.</sub></sup>
 
 
 ## Relevant files
@@ -23,7 +28,7 @@
 - `cookieManageUI-2.js` - The UI for accepting cookie tracking. Microsites in es.greenpeace.org use a different code for the UI.
 - `stats-footer-testing-2.js` - The general file used in the entire site to manage tracking accordingly to the user cookie preferences.
 
-<small>Please note we don't use non-javascript tracking, as we can't respect the user's choice about cookies if we would use it.</small>
+<sup><sub>Note: we don't use non-javascript tracking if we can't respect the user's choice about cookies.</sub></sup>
 
 
 ## Functions to test if we can track, specially if it will add a cookie
