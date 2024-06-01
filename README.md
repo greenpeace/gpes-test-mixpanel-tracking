@@ -13,19 +13,20 @@
    4. Respect the 2 relevant categories: "analytics" for anonymous tracking and with "segmentation" we can relate with PII.
 2. Set up the **identity** properly to use with:
    1. Anonymous users that have rejected cookies on events in the same page (page view and others)
-   2. Anonymous users that have accepted cookies. The idenity will have to be consistent between pages and between sessions.
+   2. Anonymous users that have accepted cookies. The identity will have to be consistent between pages and between sessions.
    3. Users identified by email (forms) should merge their new non-anonymous identity with previous ones. Only if the user has accepted the `segmentation` category.
-   4. Add a new email to an idenity that already has an email address.
+   4. Add a new email to an identity that already has an email address.
 3. Mixpanel should collect information with **Brave's browser** and it's default settings. The user's cookie decisions for this website have to override Brave's settings.
+4. Test potential technologies, like GTM server side, proxies...
 
-<sup><sub>Note: Above, when say "coookie", it includes any tech that can store information in the user's browser.</sub></sup>
+<sup><sub>Note: Above, when say "cookie", it includes any tech that can store information in the user's browser.</sub></sup>
 
 
 ## Relevant files
 
 - The html files in this repository are used to test and insert html if needed.
-- `cookieTrackingManager-2.js` - The cookie managament utilities.
-- `cookieManageUI-2.js` - The UI for accepting cookie tracking. Microsites in es.greenpeace.org use a different code for the UI.
+- `cookieTrackingManager-2.js` - The cookie management utilities.
+- `cookieManageUI-2.js` - The UI for accepting cookie tracking. (Micro-sites in es.greenpeace.org use a different code for the UI.)
 - `stats-footer-testing-2.js` - The general file used in the entire site to manage tracking accordingly to the user cookie preferences.
 
 <sup><sub>Note: we don't use non-javascript tracking if we can't respect the user's choice about cookies.</sub></sup>
@@ -68,7 +69,7 @@ Currently this window events are triggered from the ui. Any of the 3 DOM events 
 
 ## About how Google Analytics works
 
-Google Analytics tracks pagiews by using the consent mode. Because it can track without adding cookies, it works a little bit differently.
+Google Analytics tracks page views by using consent mode. Because it can track without adding cookies, it works a little bit differently.
 
 In the html head of the page we have:
 
