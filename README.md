@@ -1,7 +1,9 @@
 # Test the integration methods between es.greenpeace.org and Mixpanel
 
 
- * [Preview site](https://greenpeace.github.io/gpes-test-mixpanel-tracking/) - Please open the preview site with a private window to view the cookie banner and to see the cookies without residual cookies from other sites.
+* [Preview site](https://greenpeace.github.io/gpes-test-mixpanel-tracking/) - Please open the preview site with a private window to view the cookie banner and to see the cookies without residual cookies from other sites.
+* **Sandbox:**
+  * [Simple site tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking.
 
 
 ## Goals of this test
