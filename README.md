@@ -3,7 +3,8 @@
 
 * [Preview site](https://greenpeace.github.io/gpes-test-mixpanel-tracking/) - Please open the preview site with a private window to view the cookie banner and to see the cookies without residual cookies from other sites.
 * **Sandbox:**
-  * [Simple site tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking.
+  * [Simple site tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking. Spain - Test account.
+  * [Simple site tracking with proxy demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking-with-proxy.html) - Testing client side tracking with proxy demo.
 
 
 ## Goals of this test
