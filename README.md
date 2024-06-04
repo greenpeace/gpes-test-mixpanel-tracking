@@ -3,11 +3,14 @@
 
 * [Preview site](https://greenpeace.github.io/gpes-test-mixpanel-tracking/) - Please open the preview site with a private window to view the cookie banner and to see the cookies without residual cookies from other sites.
 * **Sandbox:**
-  * [Simple site tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking. Spain - Test account.
-  * [Simple site tracking with proxy demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking-with-proxy.html) - Testing client side tracking with proxy demo.
+  * [Simple tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking.
+  * [Simple tracking with proxy demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking-with-proxy.html) - Testing client side tracking with proxy.
+  * [Simple tracking with web GTM](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-tag-manager.html) - Testing client side tracking with Google Tag Manager.
 * **Mixpanel:**
   * [Mixpanel backend](https://eu.mixpanel.com/project/3304788/view/3810100/app/events) - Latest events in the **test account**.
   * [Mixpanel extension](https://chromewebstore.google.com/detail/mixpanel-tools/eifepbfdgonblafppielmnnihcopdlpo) - Easily inspect events and properties.
+* **Google Tag Manager:**
+  * [Web test container](https://tagmanager.google.com/#/container/accounts/553476035/containers/2723648/workspaces/14) - Client side only.
 
 ## Goals of this test
 
