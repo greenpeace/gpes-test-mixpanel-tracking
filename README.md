@@ -5,7 +5,9 @@
 * **Sandbox:**
   * [Simple site tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking. Spain - Test account.
   * [Simple site tracking with proxy demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking-with-proxy.html) - Testing client side tracking with proxy demo.
-
+* **Mixpanel:**
+  * [Mixpanel backend](https://eu.mixpanel.com/project/3304788/view/3810100/app/events) - Latest events in the **test account**.
+  * [Mixpanel extension](https://chromewebstore.google.com/detail/mixpanel-tools/eifepbfdgonblafppielmnnihcopdlpo) - Easily inspect events and properties.
 
 ## Goals of this test
 
