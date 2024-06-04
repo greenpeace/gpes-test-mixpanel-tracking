@@ -21,6 +21,7 @@
    4. **Merge new email hash** to an identity that already has an email address.
 3. Mixpanel should collect information with **Brave's browser** and it's default settings. The user's cookie decisions for this website have to override Brave's settings.
 4. **Test potential technologies**, like GTM server side, proxies...
+5. Compatible with ourcurrent and future **cache systems**. PHP is not run on each pageview. Currently we have a 2<sup>?</sup> minute cache.
 
 <sup><sub>Note: Above, when say "cookie", it includes any tech that can store information in the user's browser.</sub></sup>
 
