@@ -5,7 +5,7 @@
 * **Sandbox:**
   * [Simple tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking.
   * [Simple tracking with proxy demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking-with-proxy.html) - Testing client side tracking with proxy.
-  * [Simple tracking with web GTM](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-tag-manager.html) - Testing client side tracking with Google Tag Manager.
+  * [Client side GTM with custom loader](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/client-side-tag-manager-with-custom-loader.html) - Not tested yet.
 * **Mixpanel:**
   * [Mixpanel backend](https://eu.mixpanel.com/project/3304788/view/3810100/app/events) - Latest events in the **test account**.
   * [Mixpanel extension](https://chromewebstore.google.com/detail/mixpanel-tools/eifepbfdgonblafppielmnnihcopdlpo) - Easily inspect events and properties.
