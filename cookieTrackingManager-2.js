@@ -55,6 +55,15 @@ const cookieTrackingManager = {
     },
 
     /**
+     * Erases a specific cookie by name and domain
+     * @param {string} name The name of the cookie to be erased
+     * @param {string} domain The domain of the cookie to be erased
+     */
+    erraseCookie: function (name, domain) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+    },
+
+    /**
      * Errase all cookies for users that do not want to be tracked, and write their preferences
      */
     erraseAll: function () {
