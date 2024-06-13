@@ -20,6 +20,11 @@
               'ad_personalization':'denied' // V2
             });
     </script>
+    <script>
+        function deleteCookie(name, domain) {
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+          }
+    </script>
 </head>
 
 <body>
@@ -36,6 +41,12 @@
                 'event': 'Demo event', 
                 'Demo propriety': 'ExampleDL' });">
                 Demo event
+            </button>
+    </div>
+    <div>
+        <button type="button"
+            onclick="deleteCookie('stape_mixpanel_initial_referrer','.greenpeace.es');">
+                Delete stape_mixpanel_initial_referrer cookie manuallly
             </button>
     </div>
 
