@@ -1207,7 +1207,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                 "form_plugin" : "none"
                             });
 
-                            // TODO Add Mixpanel event to alias
+                            // Adds the alias to the user in Mixpanel
+                            greenpeaceLayer.push({
+                                'event' : 'identify',
+                                'alias' : sha256(email.trim().toLowerCase())
+                            });
 
                             // Sends form submit event to Mixpanel
                             greenpeaceLayer.push({
@@ -1658,6 +1662,8 @@ var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$
         
     </footer>
 </div>
+
+<script src="sha256.min.js" defer></script>
 
 <script src="https://es.greenpeace.org/es/wp-content/themes/gp/assets/js/main.min.js?cache=0.2.17" defer></script><!-- Statistics II -->
 
