@@ -1209,7 +1209,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
                             // TODO Add Mixpanel event to alias
 
-                            // TODO ADD conversion event
+                            // Sends form submit event to Mixpanel
+                            greenpeaceLayer.push({
+                                'event' : 'form_submitted',
+                                'form_goal' : 'Newsletter',
+                                'form_plugin' : 'none',
+                                'form_title' : 'Newsletter',
+                                'salesforce_campaign' : '70108000001A1fVAAS',
+                                'form_id' : 'b397b4c8-f108-44c6-8205-7d57133fbe0c'
+                            });
                                                         
                             if ( typeof(hj) === "function" && cookieTrackingManager.canItrack("analytics") ) {
                                 window.hj('identify', userId, {
