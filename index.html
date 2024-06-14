@@ -1218,15 +1218,17 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                             });
 
                             // Adds the alias to the user in Mixpanel
-                            greenpeaceLayer.push({
-                                'event' : 'user_identified',
-                                'distinct_id' : sha256(email.trim().toLowerCase()),
-                                'registration_type' : 'Newsletter',
-                                'consent_analytics' : cookieTrackingManager.canItrack("analytics").toString().toUpperCase(),
-                                'consent_segmentation' : cookieTrackingManager.canItrack("segmentation").toString().toUpperCase(),
-                                'consent_marketing' : cookieTrackingManager.canItrack("consent_marketing").toString().toUpperCase(),
-                                'user_type' : 'profiled'
-                            });
+                            if ( cookieTrackingManager.canItrack("analytics") && cookieTrackingManager.canItrack("segmentation") ) {
+                                greenpeaceLayer.push({
+                                    'event' : 'user_identified',
+                                    'distinct_id' : sha256(email.trim().toLowerCase()),
+                                    'registration_type' : 'Newsletter',
+                                    'consent_analytics' : cookieTrackingManager.canItrack("analytics").toString().toUpperCase(),
+                                    'consent_segmentation' : cookieTrackingManager.canItrack("segmentation").toString().toUpperCase(),
+                                    'consent_marketing' : cookieTrackingManager.canItrack("consent_marketing").toString().toUpperCase(),
+                                    'user_type' : 'profiled'
+                                });                            
+                            }
 
                             // Sends form submit event to Mixpanel
                             greenpeaceLayer.push({
