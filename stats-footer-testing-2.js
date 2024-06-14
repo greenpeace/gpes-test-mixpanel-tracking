@@ -87,7 +87,7 @@ const trackingScripts = {
             // Consent tracking
             googleTrackingConfig.cookie_consent = getConsentString();
 
-            gtag('config', 'G-7NL9SM5MNP', googleTrackingConfig); // FIXME 
+            gtag('config', 'G-VEG9B9WWG6', googleTrackingConfig); // FIXME 
         }
         
         setTimeout(function(){

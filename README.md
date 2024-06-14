@@ -9,6 +9,8 @@
   * [Client side GTM with custom loader](https://static.greenpeace.es/test-gtm-loader/) - Not tested yet [source code](sandbox/client-side-tag-manager-with-custom-loader.html).
 * **Mixpanel:**
   * [Mixpanel backend](https://eu.mixpanel.com/project/3304788/view/3810100/app/events) - Latest events in the **test account**.
+  * [Google Analytics account](https://analytics.google.com/analytics/web/#/p446051450/realtime/overview?params=_u..nav%3Dmaui) - We've created this account to confirm that 100% of the events are being sent just to Mixpanel and not to GA4.
+* **Chrome extensions:**
   * [Mixpanel extension](https://chromewebstore.google.com/detail/mixpanel-tools/eifepbfdgonblafppielmnnihcopdlpo) - Easily inspect events and properties.
 * **Google Tag Manager:**
   * [Web test container](https://tagmanager.google.com/#/container/accounts/553476035/containers/2723648/workspaces/14) - Client side only.
@@ -86,7 +88,7 @@ Google Analytics tracks page views by using consent mode. Because it can track w
 In the html head of the page we have:
 
 ```html
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7NL9SM5MNP"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VEG9B9WWG6"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -115,7 +117,7 @@ In the html head of the page we have:
 </script>
 ```
 
-But it's at the footer that we run the function to update consent and track the page view. That's `trackingScripts.googleAnalyticsFooter()`. This function runs `gtag('config', 'G-7NL9SM5MNP', googleTrackingConfig);`.
+But it's at the footer that we run the function to update consent and track the page view. That's `trackingScripts.googleAnalyticsFooter()`. This function runs `gtag('config', 'G-VEG9B9WWG6', googleTrackingConfig);`.
 
 `googleTrackingConfig` is an object that includes **information about the page**. In the home page it hasn't many information but in pages like the [Arctic petition](https://es.greenpeace.org/es/que-puedes-hacer-tu/peticiones/el-artico-se-derrite/) or a [blog post page](https://es.greenpeace.org/es/noticias/urdaibai-ya-es-un-tesoro-el-guggenheim-no-va-aqui/) it contains more information.
 
