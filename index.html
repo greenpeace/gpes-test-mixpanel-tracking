@@ -305,17 +305,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
         <!-- Mixpanel container -->
         <script>
-            window.greenpeaceLayer = window.greenpeaceLayer || [];
-            function gtag(){greenpeaceLayer.push(arguments);}
-            gtag('consent', 'default', {
-              'ad_storage': 'denied', // V1
-              'analytics_storage': 'denied', // V1
-              'ad_user_data' : 'denied', // V2
-              'ad_personalization':'denied' // V2
-            });
-        </script>
-        <script>
-            (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://sst-test.greenpeace.es/olpjosud.js?st=' + i + dl + ''; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'greenpeaceLayer', 'KM925DBR');
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://sst-test.greenpeace.es/olpjosud.js?st='+i+dl+'';f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','KM925DBR');
         </script>
         <!-- /Mixpanel container -->
 
@@ -1219,7 +1209,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
                             // Adds the alias to the user in Mixpanel
                             if ( cookieTrackingManager.canItrack("analytics") && cookieTrackingManager.canItrack("segmentation") ) {
-                                greenpeaceLayer.push({
+                                dataLayer.push({
                                     'event' : 'user_identified',
                                     'distinct_id' : sha256(email.trim().toLowerCase()),
                                     'registration_type' : 'Newsletter',
@@ -1231,7 +1221,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                             }
 
                             // Sends form submit event to Mixpanel
-                            greenpeaceLayer.push({
+                            dataLayer.push({
                                 'event' : 'form_submitted',
                                 'form_goal' : 'Newsletter',
                                 'form_plugin' : 'none',
