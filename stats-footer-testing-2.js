@@ -27,12 +27,12 @@ const trackingScripts = {
         if (cookieTrackingManager.canItrack("analytics")) {
             gtag('consent', 'update', {'analytics_storage': 'granted'}); // V1
             this.googleAnalyticsFooter();
-            this.mixpanelFooter();
+            // this.getPageData();
             this.googleTagManager();
             this.hotjar();
         } else {
             this.googleAnalyticsFooter();
-            this.mixpanelFooter();
+            // this.getPageData();
         }
 
         if (cookieTrackingManager.canItrack("segmentation")) {
@@ -122,7 +122,7 @@ const trackingScripts = {
 
     },
 
-    mixpanelFooter: function () {
+    getPageData: function () {
         const urlParams = new URLSearchParams(window.location.search);
         function dateFormat(d) {
             const fd = d.split("-");
@@ -304,6 +304,8 @@ const trackingScripts = {
  * Initializing tracking
  */
 cookieTrackingManager.read();
+
+trackingScripts.getPageData();
 
 if (cookieTrackingManager.needToAskConsent() === false) {
 
