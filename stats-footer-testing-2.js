@@ -137,8 +137,8 @@ const trackingScripts = {
                 'page_language': document.documentElement.lang,
                 'page_platform' : 'Wordpress',
                 'page_type' : '', // TODO
-                'page_tags': googleTrackingConfig.tags ? googleTrackingConfig.tags.split(",") : '',
-                'page_categories': googleTrackingConfig.categories ? googleTrackingConfig.categories.split(",") : '',
+                'page_tags': googleTrackingConfig.tags ? googleTrackingConfig.tags.split(",") : [],
+                'page_categories': googleTrackingConfig.categories ? googleTrackingConfig.categories.split(",") : [],
                 'page_author': googleTrackingConfig.author ? googleTrackingConfig.author : '',
                 'page_date' : googleTrackingConfig.post_date ? dateFormat(googleTrackingConfig.post_date) : '',
                 'referring_project' : urlParams.has('global_project') ? urlParams.get('global_project') : '',
