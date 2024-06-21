@@ -27,10 +27,12 @@ const trackingScripts = {
         if (cookieTrackingManager.canItrack("analytics")) {
             gtag('consent', 'update', {'analytics_storage': 'granted'}); // V1
             this.googleAnalyticsFooter();
+            this.mixpanelFooter();
             this.googleTagManager();
             this.hotjar();
         } else {
             this.googleAnalyticsFooter();
+            this.mixpanelFooter();
         }
 
         if (cookieTrackingManager.canItrack("segmentation")) {
@@ -118,6 +120,40 @@ const trackingScripts = {
             }
         });
 
+    },
+
+    mixpanelFooter: function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        function dateFormat(d) {
+            const fd = d.split("-");
+            return fd[2] + "-" + fd[1] + "-" + fd[0];
+        }
+        if (typeof dataLayer === "object") {
+            dataLayer.push({
+                'event' : 'page_data',
+                'nro' : 'Spain and Portugal',
+                'office': 'Spain',
+                'page_title': document.title,
+                'page_language': document.documentElement.lang,
+                'page_platform' : 'Wordpress',
+                'page_type' : '', // TODO
+                'page_tags': googleTrackingConfig.tags ? googleTrackingConfig.tags.split(",") : '',
+                'page_categories': googleTrackingConfig.categories ? googleTrackingConfig.categories.split(",") : '',
+                'page_author': googleTrackingConfig.author ? googleTrackingConfig.author : '',
+                'page_date' : googleTrackingConfig.post_date ? dateFormat(googleTrackingConfig.post_date) : '',
+                'referring_project' : urlParams.has('global_project') ? urlParams.get('global_project') : '',
+                'global_project' : googleTrackingConfig.global_project ? googleTrackingConfig.global_project : '',
+                'global_project_id' : googleTrackingConfig.global_project_id ? googleTrackingConfig.global_project_id : '',
+                'local_project' : googleTrackingConfig.local_project ? googleTrackingConfig.local_project : '',
+                'utm_medium': urlParams.has('utm_medium') ? urlParams.get('utm_medium') : '',
+                'utm_source': urlParams.has('utm_source') ? urlParams.get('utm_source') : '',
+                'utm_campaign': urlParams.has('utm_campaign') ? urlParams.get('utm_campaign') : '',
+                'utm_content': urlParams.has('utm_content') ? urlParams.get('utm_content') : '',
+                'utm_term': urlParams.has('utm_term') ? urlParams.get('utm_term') : '',
+                'gclid': urlParams.has('gclid') ? urlParams.get('gclid') : '',
+
+            });
+        }
     },
 
     /**
