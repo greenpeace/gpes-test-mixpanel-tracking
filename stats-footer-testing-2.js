@@ -122,12 +122,23 @@ const trackingScripts = {
 
     },
 
+    /**
+     * Retrieves and formats page data to be pushed into the dataLayer object.
+     * This function extracts various data points from the URL parameters, document properties,
+     * and the googleTrackingConfig object. It then formats the data and pushes it into the dataLayer
+     * object for further tracking and analysis.
+     */
     getPageData: function () {
+        
+        // Extract URL parameters
         const urlParams = new URLSearchParams(window.location.search);
+
+        // Helper function to format date in the format YYYY-MM-DD
         function dateFormat(d) {
             const fd = d.split("-");
             return fd[2] + "-" + fd[1] + "-" + fd[0];
         }
+
         if (typeof dataLayer === "object") {
             dataLayer.push({
                 'event' : 'page_data',
@@ -151,7 +162,6 @@ const trackingScripts = {
                 'utm_content': urlParams.has('utm_content') ? urlParams.get('utm_content') : '',
                 'utm_term': urlParams.has('utm_term') ? urlParams.get('utm_term') : '',
                 'gclid': urlParams.has('gclid') ? urlParams.get('gclid') : '',
-
             });
         }
     },
