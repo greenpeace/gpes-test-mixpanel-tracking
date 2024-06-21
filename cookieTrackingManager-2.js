@@ -55,6 +55,21 @@ const cookieTrackingManager = {
     },
 
     /**
+     * Writes an event to the dataLayer object if it exists.
+     * The event contains information about the user's consent for different categories of tracking.
+     */
+    writeEvent: function () {
+        if (typeof dataLayer === "object") {
+            dataLayer.push({
+                'event': 'consent_given',
+                'consent_analytics': this.canItrack('analytics').toString().toUpperCase(),
+                'consent_segmentation': this.canItrack('segmentation').toString().toUpperCase(),
+                'consent_marketing': this.canItrack('advertisement').toString().toUpperCase()
+            });
+        }
+    },
+
+    /**
      * Erases a specific cookie by name and domain
      * @param {string} name The name of the cookie to be erased
      * @param {string} domain The domain of the cookie to be erased

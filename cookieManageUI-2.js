@@ -19,6 +19,7 @@ const cookieManageUI = {
             cookieTrackingManager.consent.allowAll = true;
             delete(cookieTrackingManager.consent.denyAll);
             cookieTrackingManager.write();
+            cookieTrackingManager.writeEvent();
             trackingScripts.initAll();
 
             window.dispatchEvent(new CustomEvent("cookies:accept", {}));
@@ -74,6 +75,7 @@ const cookieManageUI = {
             cookieTrackingManager.consent.allowAll = true;
             delete(cookieTrackingManager.consent.denyAll);
             cookieTrackingManager.write();
+            cookieTrackingManager.writeEvent();
             trackingScripts.initAll();
 
             window.dispatchEvent(new CustomEvent("cookies:acceptall", {}));
@@ -91,6 +93,7 @@ const cookieManageUI = {
             cookieTrackingManager.consent.denyAll = true;
             delete(cookieTrackingManager.consent.allowAll);
             cookieTrackingManager.erraseAll(); 
+            cookieTrackingManager.writeEvent(); 
             // cookieTrackingManager.write(); // Allready in erraseAll()
             trackingScripts.initAll();
             gtag('event', 'Click', {
@@ -108,6 +111,7 @@ const cookieManageUI = {
             cookieTrackingManager.consent.cats.segmentation = jQuery("#cookiesSegmentation").prop("checked");
             cookieTrackingManager.consent.cats.advertisement = jQuery("#cookiesAdvertisement").prop("checked");
             cookieTrackingManager.write();
+            cookieTrackingManager.writeEvent();
             trackingScripts.initAll();
 
             if ( cookieTrackingManager.consent.cats.analytics ){
