@@ -1136,17 +1136,35 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         
         const userId = "random" + Math.floor( Math.random() * (900000000 - 1) + 1);
 
+        let formHasStarted = false;
+
         document.getElementById("email").addEventListener("click", function(event) {
-            document.getElementById("restOfTheForm").removeAttribute("hidden");
-            gtag("event", "Click", {
-              "event_category": "Newsletter",
-              "event_label": document.title
-            });
-            if ( typeof(hj) === "function" && cookieTrackingManager.canItrack("analytics") ) {
-                window.hj('identify', userId, {
-                    Newsletter : "ClickEmailField"
+
+            if ( formHasStarted === false) {
+                // Starts the form
+                dataLayer.push({
+                    'event': 'form_started',
+                    'form_goal': 'Newsletter',
+                    'form_plugin': 'no_plugin',
+                    'form_title': 'Newsletter home',
+                    'form_id': 'b397b4c8-f108-44c6-8205-7d57133fbe0c',
+                    'salesforce_campaign': '70108000001A1fVAAS'
                 });
+
+                document.getElementById("restOfTheForm").removeAttribute("hidden");
+                gtag("event", "Click", {
+                "event_category": "Newsletter",
+                "event_label": document.title
+                });
+                if ( typeof(hj) === "function" && cookieTrackingManager.canItrack("analytics") ) {
+                    window.hj('identify', userId, {
+                        Newsletter : "ClickEmailField"
+                    });
+                }
+                
+                formHasStarted = true;
             }
+            
         });
 
         document.getElementById("newsletterSubmit").addEventListener("click", function(event) {
