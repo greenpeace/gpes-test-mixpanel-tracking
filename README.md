@@ -2,18 +2,20 @@
 
 **Testing the basic assumptions:**
 * [Preview site in Github](https://greenpeace.github.io/gpes-test-mixpanel-tracking/) - Please open the preview site with a private window to view the cookie banner and to see the cookies without residual cookies from other sites.
-* **[Preview site in greenpeace.es](https://static.greenpeace.es/test-mixpanel/)** - Preview site on a greenpeace.es subdomain. Please note that the "hazte-socio" links can be used to test nav between pages.
+* **[Preview site in greenpeace.es](https://static.greenpeace.es/test-mixpanel/)** - Preview site on a greenpeace.es subdomain, the same domain as the tag manager. Please note that the "hazte-socio" links can be used to test nav between pages.
 * **Sandbox:**
   * [Simple tracking demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking.html) - Testing client side tracking.
   * [Simple tracking with proxy demo](https://greenpeace.github.io/gpes-test-mixpanel-tracking/sandbox/simple-client-side-tracking-with-proxy.html) - Testing client side tracking with proxy.
-  * [Client side GTM with custom loader](https://static.greenpeace.es/test-gtm-loader/) - Not tested yet [source code](sandbox/client-side-tag-manager-with-custom-loader.html).
+  * [Client side GTM with custom loader](https://static.greenpeace.es/test-gtm-loader/) - [source code](sandbox/client-side-tag-manager-with-custom-loader.html).
 * **Mixpanel:**
   * [Mixpanel backend](https://eu.mixpanel.com/project/3304788/view/3810100/app/events) - Latest events in the **test account**.
   * [Google Analytics account](https://analytics.google.com/analytics/web/#/p446051450/realtime/overview?params=_u..nav%3Dmaui) - We've created this account to confirm that 100% of the events are being sent just to Mixpanel and not to GA4.
 * **Chrome extensions:**
   * [Mixpanel extension](https://chromewebstore.google.com/detail/mixpanel-tools/eifepbfdgonblafppielmnnihcopdlpo) - Easily inspect events and properties.
 * **Google Tag Manager:**
-  * [Web test container](https://tagmanager.google.com/#/container/accounts/553476035/containers/2723648/workspaces/14) - Client side only.
+  * [Web test container](https://tagmanager.google.com/#/container/accounts/553476035/containers/2723648/) - Client side only.
+  * [GPES Test client](https://tagmanager.google.com/#/container/accounts/553476035/containers/187017593/)
+  * [GPES Test server](https://tagmanager.google.com/#/container/accounts/553476035/containers/187038479/)
 
 ## Goals of this test
 
