@@ -11,6 +11,48 @@ const getConsentString = function() {
     return consentString;
 };
 
+const storeUTMParameters = function() {
+    // Parse the current URL
+    var url = new URL(window.location.href);
+
+    // List of common UTM parameters
+    var utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+    var hasUTMParams = false;
+
+    // Iterate over each UTM parameter and check if it exists in the URL
+    for (var i = 0; i < utmParams.length; i++) {
+        var value = url.searchParams.get(utmParams[i]);
+        if (value !== null) {
+            hasUTMParams = true;
+            // If the UTM parameter exists, store it in local storage with the prefix "gtm_"
+            localStorage.setItem("gtm_" + utmParams[i], value);
+        }
+    }
+
+    if (hasUTMParams) {
+        // Store the current timestamp
+        localStorage.setItem("gtm_timestamp", Date.now());
+    } else {
+        // Check the timestamp if there are no UTM parameters in the URL
+        var storedTimestamp = localStorage.getItem("gtm_timestamp");
+        if (storedTimestamp !== null) {
+            var currentTime = Date.now();
+            var thirtyMinutesInMillis = 30 * 60 * 1000;
+            if (currentTime - storedTimestamp > thirtyMinutesInMillis) {
+                // Timestamp is older than 30 minutes, clear all UTM parameters and timestamp
+                for (var i = 0; i < utmParams.length; i++) {
+                    localStorage.removeItem("gtm_" + utmParams[i]);
+                }
+                localStorage.removeItem("gtm_timestamp");
+            } else {
+                // Update the timestamp to the current time
+                localStorage.setItem("gtm_timestamp", currentTime);
+            }
+        }
+    }
+};
+
 
 const trackingScripts = {
 
@@ -27,12 +69,11 @@ const trackingScripts = {
         if (cookieTrackingManager.canItrack("analytics")) {
             gtag('consent', 'update', {'analytics_storage': 'granted'}); // V1
             this.googleAnalyticsFooter();
-            // this.getPageData();
             this.googleTagManager();
             this.hotjar();
+            storeUTMParameters();
         } else {
             this.googleAnalyticsFooter();
-            // this.getPageData();
         }
 
         if (cookieTrackingManager.canItrack("segmentation")) {
