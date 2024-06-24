@@ -150,6 +150,11 @@
                 }
                 return uuid;
             }
+            if  (getCookie('gp_anonymous_id')) {
+                window.uuid = getCookie('gp_anonymous_id');
+            } else {
+                window.uuid = generateUUID();
+            }
         </script>
         <!-- /Mixpanel functions -->
 

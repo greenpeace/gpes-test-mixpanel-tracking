@@ -309,7 +309,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 var expires = "expires="+ d.toUTCString();
                 document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
             };
-            
             const getCookie = function (name) {
                 var nameEQ = name + "=";
                 var ca = document.cookie.split(';');
@@ -343,6 +342,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                     uuid += pad(array[i]);
                 }
                 return uuid;
+            }
+            if  (getCookie('gp_anonymous_id')) {
+                window.uuid = getCookie('gp_anonymous_id');
+            } else {
+                window.uuid = generateUUID();
             }
         </script>
         <!-- /Mixpanel functions -->
