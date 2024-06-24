@@ -141,7 +141,7 @@ const trackingScripts = {
 
         if (typeof dataLayer === "object") {
             dataLayer.push({
-                'nro' : 'Spain and Portugal',
+                'nro' : 'Spain',
                 'office': 'Spain',
                 'page_title': document.title,
                 'page_language': document.documentElement.lang,
