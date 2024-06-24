@@ -320,6 +320,30 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 }
                 return "";
             };
+            const generateUUID = function() {
+                var array = new Uint8Array(16);
+                try {
+                    window.crypto.getRandomValues(array);
+                } catch (error) {
+                    return;
+                }
+            
+                array[6] = (array[6] & 0x0f) | 0x40; // Version 4
+                array[8] = (array[8] & 0x3f) | 0x80; // Variant 10
+            
+                var pad = function (num) {
+                    return (num < 16 ? '0' : '') + num.toString(16);
+                };
+            
+                var uuid = '';
+                for (var i = 0; i < 16; i++) {
+                    if (i == 4 || i == 6 || i == 8 || i == 10) {
+                        uuid += '-';
+                    }
+                    uuid += pad(array[i]);
+                }
+                return uuid;
+            }
         </script>
         <!-- /Mixpanel functions -->
         
