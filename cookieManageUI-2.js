@@ -20,6 +20,7 @@ const cookieManageUI = {
             delete(cookieTrackingManager.consent.denyAll);
             cookieTrackingManager.write();
             cookieTrackingManager.writeEvent();
+            setCookie("gp_anonymous_id", window.uuid, 365 * 2); // Mixpanel
             trackingScripts.initAll();
 
             window.dispatchEvent(new CustomEvent("cookies:accept", {}));
@@ -76,6 +77,7 @@ const cookieManageUI = {
             delete(cookieTrackingManager.consent.denyAll);
             cookieTrackingManager.write();
             cookieTrackingManager.writeEvent();
+            setCookie("gp_anonymous_id", window.uuid, 365 * 2); // Mixpanel
             trackingScripts.initAll();
 
             window.dispatchEvent(new CustomEvent("cookies:acceptall", {}));
@@ -112,6 +114,9 @@ const cookieManageUI = {
             cookieTrackingManager.consent.cats.advertisement = jQuery("#cookiesAdvertisement").prop("checked");
             cookieTrackingManager.write();
             cookieTrackingManager.writeEvent();
+            if ( cookieTrackingManager.canItrack("analytics") ) {
+                setCookie("gp_anonymous_id", window.uuid, 365 * 2); // Mixpanel
+            }
             trackingScripts.initAll();
 
             if ( cookieTrackingManager.consent.cats.analytics ){
