@@ -347,6 +347,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 window.uuid = getCookie('gp_anonymous_id');
             } else {
                 window.uuid = generateUUID();
+                window.addEventListener("load", function(){
+                    if (cookieTrackingManager.canItrack("analytics")){
+                        setCookie("gp_anonymous_id", window.uuid, 365 * 2);
+                    }
+                });
             }
         </script>
         <!-- /Mixpanel functions -->
