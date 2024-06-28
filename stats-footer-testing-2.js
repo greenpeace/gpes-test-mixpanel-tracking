@@ -187,7 +187,7 @@ const trackingScripts = {
                 'page_title': document.title,
                 'page_language': document.documentElement.lang,
                 'page_platform' : 'Wordpress',
-                'page_type' : '', // TODO
+                'page_type' : googleTrackingConfig.page_type ? googleTrackingConfig.page_type : '',
                 'page_tags': googleTrackingConfig.tags ? googleTrackingConfig.tags.split(",") : [],
                 'page_categories': googleTrackingConfig.categories ? googleTrackingConfig.categories.split(",") : [],
                 'page_author': googleTrackingConfig.author ? googleTrackingConfig.author : '',
