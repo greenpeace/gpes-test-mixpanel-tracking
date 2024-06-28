@@ -153,6 +153,9 @@ const trackingScripts = {
                         
         // Add Comments on blog
         jQuery("#form").on("submit", function () {
+            dataLayer.push({
+                'event': 'comment_submitted'
+            });
             if ( typeof gtag === "function") {
                 gtag('event', "Comentario", {
                     'event_category': "Blog",
