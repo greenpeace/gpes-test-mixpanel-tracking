@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using gtag</title>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://sst-test.greenpeace.es/olpjosud.js?st=' + i + dl + ''; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'KM925DBR');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'ad_storage': 'denied', // V1
+              'analytics_storage': 'denied', // V1
+              'ad_user_data' : 'denied', // V2
+              'ad_personalization':'denied' // V2
+            });
+    </script>
+    <script>
+        function deleteCookie(name, domain) {
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+          }
+    </script>
+</head>
+
+<body>
+
+    <h1>Using gtag</h1>
+
+<script>
+
+    gtag('consent', 'default', {
+        'ad_storage': 'granted', // V1
+        'analytics_storage': 'granted', // V1
+        'ad_user_data' : 'granted', // V2
+        'ad_personalization':'granted' // V2
+      });
+
+    gtag('config', 'G-VEG9B9WWG6', {
+        'server_container_url': 'https://sst-test.greenpeace.es/',
+        'first_party_collection': true,
+        'send_page_view': false,
+      });
+
+</script>
+
+    <div>
+        <button type="button"
+            onclick="gtag('event','Demo event', { 'send_to': 'G-VEG9B9WWG6', 'Demo propriety': 'ExampleDL' });">
+               Send Demo event
+            </button>
+    </div>
+
+
+</body>
+
+</html>
