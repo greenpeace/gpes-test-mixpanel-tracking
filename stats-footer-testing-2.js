@@ -65,9 +65,25 @@ const trackingScripts = {
      * Runs all the tracking scripts checking permissions
      */
     initAll: function () {
+
+        let consentObject = {};
+
+        if (cookieTrackingManager.canItrack("analytics")) {
+            consentObject['analytics_storage'] = 'granted'; // V1
+        }
+
+        if (cookieTrackingManager.canItrack("advertisement")) {
+            consentObject['ad_storage'] = 'granted'; // V1
+            consentObject['ad_user_data'] = 'granted'; // V2
+        }
+
+        if (cookieTrackingManager.canItrack("segmentation") && cookieTrackingManager.canItrack("advertisement") ) {
+            consentObject['ad_personalization'] = 'granted'; // V2
+        }
+
+        gtag('consent', 'update', consentObject);
     
         if (cookieTrackingManager.canItrack("analytics")) {
-            gtag('consent', 'update', {'analytics_storage': 'granted'}); // V1
             this.googleAnalyticsFooter();
             this.googleTagManager();
             this.hotjar();
@@ -81,10 +97,6 @@ const trackingScripts = {
         }
         
         if (cookieTrackingManager.canItrack("advertisement")) {
-            gtag('consent', 'update', {
-                'ad_storage': 'granted', // V1
-                'ad_user_data': 'granted', // V2
-            });
             this.facebook();
             this.twitter();
             this.outbrain();
@@ -92,7 +104,6 @@ const trackingScripts = {
         }
         
         if (cookieTrackingManager.canItrack("segmentation") && cookieTrackingManager.canItrack("advertisement") ) {
-            gtag('consent', 'update', {'ad_personalization': 'granted'}); // V2
             this.hubspot();
         }
 
