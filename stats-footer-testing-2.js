@@ -70,15 +70,22 @@ const trackingScripts = {
 
         if (cookieTrackingManager.canItrack("analytics")) {
             consentObject['analytics_storage'] = 'granted'; // V1
+        } else {
+            consentObject['analytics_storage'] = 'denied'; // V1
         }
 
         if (cookieTrackingManager.canItrack("advertisement")) {
             consentObject['ad_storage'] = 'granted'; // V1
             consentObject['ad_user_data'] = 'granted'; // V2
+        } else {
+            consentObject['ad_storage'] = 'denied'; // V1
+            consentObject['ad_user_data'] = 'denied'; // V2
         }
 
         if (cookieTrackingManager.canItrack("segmentation") && cookieTrackingManager.canItrack("advertisement") ) {
             consentObject['ad_personalization'] = 'granted'; // V2
+        } else {
+            consentObject['ad_personalization'] = 'denied'; // V2
         }
 
         gtag('consent', 'update', consentObject);
